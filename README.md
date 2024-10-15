@@ -1,1 +1,1 @@
-# sorting-algorithm-visualisation
+# Visualization of different sorting algorithms
