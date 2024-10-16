@@ -6,41 +6,12 @@ import java.util.ArrayList;
 import java.util.Set;
 
 public abstract class Utils {
-    // change to ### view
-    public static void printArray(ArrayList<Integer> arrayList) {
-        try {
-            Thread.sleep(20);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        JTerminal.clear();
-        int line = findMax(arrayList);
-        StringBuilder sb = new StringBuilder();
-        while (line >= 0) {
-            for (var element : arrayList) {
-                if (element > line) JTerminal.print("#");
-                else JTerminal.print(" ");
-            }
-            JTerminal.println("");
-            line--;
-        }
-
-    }
-
     public static int findMax(ArrayList<Integer> array) {
         int max = 0;
         for (var element : array) {
             if (element > max) max = element;
         }
         return max;
-    }
-
-    // Swap function
-    public static void swap(ArrayList<Integer> arr, int i, int j) {
-        int temp = arr.get(i);
-        arr.set(i, arr.get(j));
-        arr.set(j, temp);
-        Utils.printArray(arr);
     }
 
     public static void swapHighlighted(ArrayList<Integer> arr, int currentIndex, int targetIndex, Set<Integer> sortedIndices, int sleepDuration) {
@@ -82,13 +53,13 @@ public abstract class Utils {
                 int element = arrayList.get(col);
                 if (element >= row) {
                     if (sortedIndices.contains(col)) {
-                        output.append(GREEN).append("#").append(RESET);
+                        output.append(GREEN).append("◼").append(RESET);
                     } else if (col == currentIndex) {
-                        output.append(RED).append("#").append(RESET);
+                        output.append(RED).append("◼").append(RESET);
                     } else if (col == targetIndex) {
-                        output.append(BLUE).append("#").append(RESET);
+                        output.append(BLUE).append("◼").append(RESET);
                     } else {
-                        output.append("#");
+                        output.append("◼");
                     }
                 } else {
                     output.append(" ");
