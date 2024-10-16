@@ -8,7 +8,7 @@ public abstract class Utils {
     // change to ### view
     public static void printArray(ArrayList<Integer> arrayList) {
         try {
-            Thread.sleep(10);
+            Thread.sleep(20);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -32,6 +32,14 @@ public abstract class Utils {
             if (element > max) max = element;
         }
         return max;
+    }
+
+    // Swap function
+    public static void swap(ArrayList<Integer> arr, int i, int j) {
+        int temp = arr.get(i);
+        arr.set(i, arr.get(j));
+        arr.set(j, temp);
+        Utils.printArray(arr);
     }
 
     // fillArrayRandomlyMethod (between 1 and 100 for example)
