@@ -1,11 +1,12 @@
 package algorithms;
+
 import java.util.ArrayList;
 
-public abstract class AlgorithmSort {
+public abstract class SortingAlgorithm {
     protected ArrayList<Integer> array;
 
-    public AlgorithmSort(ArrayList<Integer> array ){
-        if(array == null){
+    public SortingAlgorithm(ArrayList<Integer> array) {
+        if (array == null) {
             throw new IllegalArgumentException("Array can't be empty.");
         }
         this.array = array;

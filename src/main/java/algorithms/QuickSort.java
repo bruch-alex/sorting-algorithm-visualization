@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-public class QuickSort extends AlgorithmSort {
+public class QuickSort extends SortingAlgorithm {
 
     public QuickSort(ArrayList<Integer> array) {
         super(array);

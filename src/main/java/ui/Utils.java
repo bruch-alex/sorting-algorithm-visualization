@@ -1,11 +1,14 @@
 package ui;
 
 import io.github.shuoros.jterminal.JTerminal;
+import org.jline.terminal.Terminal;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Set;
 
 public abstract class Utils {
+
     public static int findMax(ArrayList<Integer> array) {
         int max = 0;
         for (var element : array) {
@@ -67,8 +70,8 @@ public abstract class Utils {
             }
             output.append("\n");
         }
-
-        System.out.print(output.toString());
+        //printInCenter(output.toString(), " ");
+        System.out.print(output);
 
         /*
         Repositioning the cursor:
@@ -79,6 +82,17 @@ public abstract class Utils {
         System.out.print("\033[" + maxHeight + "F"); // Move cursor up to the top
     }
 
+    public static void clearArrayAndFillRandomly(ArrayList<Integer> array, int width, int height) {
+        Random r = new Random();
+        array.clear();
+        for (int i = 0; i < width - 1; i++) {
+            array.add(r.nextInt(1, (int) (height - 1)));
+        }
+    }
 
-    // fillArrayRandomlyMethod (between 1 and 100 for example)
+    public static void printInCenter(String line, String symbolForFill) {
+        int width = UI.terminal.getWidth();
+        int padding = ((width - line.length()) / 2);
+        JTerminal.println(symbolForFill.repeat(Math.max(0, padding)) + line + symbolForFill.repeat(Math.max(0, padding)));
+    }
 }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-public class InsertionSort extends AlgorithmSort {
+public class InsertionSort extends SortingAlgorithm {
 
     public InsertionSort(ArrayList<Integer> array) {
         super(array);
@@ -14,7 +14,7 @@ public class InsertionSort extends AlgorithmSort {
 
     @Override
     public void sort() {
-        int SLEEP_DURATION = 10;
+        int SLEEP_DURATION = 2;
         Set<Integer> sortedIndices = new HashSet<>();
 
         if (array.isEmpty()) {

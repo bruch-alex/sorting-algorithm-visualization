@@ -6,15 +6,14 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-public class BubbleSort extends AlgorithmSort {
+public class BubbleSort extends SortingAlgorithm {
     public BubbleSort(ArrayList<Integer> array) {
         super(array);
     }
 
-
     @Override
     public void sort() {
-        int SLEEP_DURATION = 5;
+        int SLEEP_DURATION = 3;
 
         if (array.isEmpty()) {
             System.out.println("Array is empty, nothing to sort.");
