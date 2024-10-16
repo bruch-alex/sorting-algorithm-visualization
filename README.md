@@ -1,4 +1,8 @@
-# Visualization of different sorting algorithms
+<h1 align="center">
+    Visualization of different sorting algorithms</h1>
+
+<p align="center">
+    <img src="assets/README-animation.gif" alt="Insertion sort gif"/></p>
 
 ## How to build executable file?
 
@@ -12,7 +16,9 @@ This command will create `/taget` folder and executable `fileName-version-jar-wi
 
 ## How to run?
 
-open terminal in a folder with `.jar` file and run:
+1. Build project or download latest release from release section.
+
+2. open terminal in a folder with `.jar` file and run:
 
 ``` bash
 java -jar filename.jar
