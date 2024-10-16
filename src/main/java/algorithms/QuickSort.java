@@ -49,14 +49,12 @@ public class QuickSort extends AlgorithmSort {
             }
         }
 
-        // Traverse arr[start..end] and move all smaller
-        // elements to the left side. Elements from start to
-        // i are smaller after every iteration
-
         // Move pivot after smaller elements and
         // return its position
         Utils.swapHighlighted(array, pIndex, end, sortedIndices, sleepDuration); // Move pivot to correct position
         sortedIndices.add(pIndex);
+        sortedIndices.add(start);
+        sortedIndices.add(end);
         return pIndex;
     }
 
