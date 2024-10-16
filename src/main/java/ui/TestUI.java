@@ -1,6 +1,8 @@
 package ui;
 
 import algorithms.BubbleSort;
+import algorithms.InsertionSort;
+import algorithms.QuickSort;
 import algorithms.SelectionSort;
 
 import java.util.ArrayList;
@@ -17,12 +19,18 @@ public class TestUI {
                 2, 19, 8, 16, 14, 19, 5, 20, 9
         ));
         BubbleSort bubbleSort = new BubbleSort(list);
-        SelectionSort selectionSort = new SelectionSort(list);
-        selectionSort.sort();
-
         //bubbleSort.sort();
 
+        SelectionSort selectionSort = new SelectionSort(list);
+        //selectionSort.sort();
 
-        //Utils.printArray(list);
+
+        QuickSort quickSort = new QuickSort(list);
+        //quickSort.sort();
+
+        InsertionSort insertionSort = new InsertionSort(list);
+        insertionSort.sort();
+
+
     }
 }

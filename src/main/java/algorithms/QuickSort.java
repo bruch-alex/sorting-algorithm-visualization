@@ -3,6 +3,8 @@ package algorithms;
 import ui.Utils;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class QuickSort extends AlgorithmSort {
 
@@ -12,23 +14,27 @@ public class QuickSort extends AlgorithmSort {
 
     @Override
     public void sort() {
-        quickSort(0, array.size() - 1);
+        int SLEEP_DURATION = 30;
+
+        Set<Integer> sortedIndices = new HashSet<>();
+        quickSort(0, array.size() - 1, sortedIndices, SLEEP_DURATION);
+        Utils.displayVerticalArray(array, -1, -1, sortedIndices);
     }
 
-    void quickSort(int start, int end) {
+    void quickSort(int start, int end, Set<Integer> sortedIndices, int sleepDuration) {
         if (start < end) {
             // pi is the partition return index of pivot
-            int pi = partition(start, end);
+            int pi = partition(start, end, sortedIndices, sleepDuration);
 
             // Recursion calls for smaller elements
             // and greater or equals elements
-            quickSort(start, pi - 1);
-            quickSort(pi + 1, end);
+            quickSort(start, pi - 1, sortedIndices, sleepDuration);
+            quickSort(pi + 1, end, sortedIndices, sleepDuration);
         }
     }
 
     // Partition function
-    int partition(int start, int end) {
+    int partition(int start, int end, Set<Integer> sortedIndices, int sleepDuration) {
         int pivot = array.get(end);
 
         // Index of smaller element and indicates
@@ -36,8 +42,9 @@ public class QuickSort extends AlgorithmSort {
         int pIndex = start;
 
         for (int i = start; i <= end - 1; i++) {
+            Utils.displayVerticalArray(array, i, end, sortedIndices);
             if (array.get(i) <= pivot) {
-                Utils.swap(array, pIndex, end);
+                Utils.swapHighlighted(array, pIndex, i, sortedIndices, sleepDuration);
                 pIndex++;
             }
         }
@@ -48,9 +55,9 @@ public class QuickSort extends AlgorithmSort {
 
         // Move pivot after smaller elements and
         // return its position
-        Utils.swap(array, pIndex, end);
+        Utils.swapHighlighted(array, pIndex, end, sortedIndices, sleepDuration); // Move pivot to correct position
+        sortedIndices.add(pIndex);
         return pIndex;
     }
-
 
 }

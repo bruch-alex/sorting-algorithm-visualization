@@ -27,7 +27,7 @@ public abstract class Utils {
 
     }
 
-    private static int findMax(ArrayList<Integer> array) {
+    public static int findMax(ArrayList<Integer> array) {
         int max = 0;
         for (var element : array) {
             if (element > max) max = element;
@@ -44,6 +44,7 @@ public abstract class Utils {
     }
 
     public static void swapHighlighted(ArrayList<Integer> arr, int currentIndex, int targetIndex, Set<Integer> sortedIndices, int sleepDuration) {
+
         displayVerticalArray(arr, currentIndex, targetIndex, sortedIndices);
         try {
             Thread.sleep(sleepDuration);
