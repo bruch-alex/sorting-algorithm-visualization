@@ -9,5 +9,8 @@
         <module name="sav" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="sar" target="22" />
+    </bytecodeTargetLevel>
   </component>
 </project>
