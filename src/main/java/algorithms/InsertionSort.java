@@ -6,76 +6,85 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+
 public class InsertionSort extends AlgorithmSort {
+    private int comparisonCount = 0;
+    private int swapCount = 0;
 
     public InsertionSort(ArrayList<Integer> array) {
         super(array);
+
     }
 
     @Override
     public void sort() {
-        int SLEEP_DURATION = 10;
-        Set<Integer> sortedIndices = new HashSet<>();
-
         if (array.isEmpty()) {
             System.out.println("Array is empty, nothing to sort.");
             return;
         }
 
+        Set<Integer> sortedIndices = new HashSet<>();
         int n = array.size();
+
         for (int i = 1; i < n; i++) {
+            int sleepDuration = 10 + (i * 2); // Dynamic delay for shifts and comparisons
+            int highlightSortedElementDelay = 10 + (i * 5); // Delay specifically for highlighting sorted elements
+
+
             int key = array.get(i);
             int j = i - 1;
 
-            // Highlight the initial key element before shifting
-            highlightInsertion(array, i, -1, -1, sortedIndices, SLEEP_DURATION);
 
-            // Shift elements to the right and highlight each shift
+            // Highlight the key element: = YELLOW =
+            highlightElement(array, i, "\033[33m", sortedIndices, sleepDuration);
+
+            // Shift elements in sorted portion to make space for key: = RED =
             while (j >= 0 && array.get(j) > key) {
+                comparisonCount++;
                 array.set(j + 1, array.get(j));
-                highlightInsertion(array, i, j, j + 1, sortedIndices, SLEEP_DURATION);
-                j = j - 1;
+                highlightElement(array, j + 1, "\033[31m", sortedIndices, sleepDuration);
+                j--;
             }
 
-            // Place the key in the correct position
+            // Show target position in: = BLUE =  before insertion
+            highlightElement(array, j + 1, "\033[34m", sortedIndices, sleepDuration * 2);
             array.set(j + 1, key);
-            highlightInsertion(array, -1, j + 1, j + 1, sortedIndices, SLEEP_DURATION);
+            swapCount++;
 
-            // Mark the element as sorted
-            sortedIndices.add(i);
+            // Delay and mark as sorted in: = GREEN =
+            try {
+                Thread.sleep(highlightSortedElementDelay);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+            sortedIndices.add(j + 1);
+            Utils.displayVerticalArray(array, -1, -1, sortedIndices);
         }
 
-        // Mark all elements as sorted for the final display
         Utils.displayVerticalArray(array, -1, -1, sortedIndices);
+        printStatistics();
     }
 
-    static void highlightInsertion(ArrayList<Integer> arrayList, int keyIndex, int shiftIndex, int targetIndex, Set<Integer> sortedIndices, int sleepDuration) {
+
+    private static void highlightElement(ArrayList<Integer> array, int index, String color, Set<Integer> sortedIndices, int sleepDuration) {
         final String RESET = "\033[0m";
-        final String YELLOW = "\033[33m"; // Key element
-        final String RED = "\033[31m";    // Shifted elements
-        final String BLUE = "\033[34m";   // Target position
-        final String GREEN = "\033[32m";  // Sorted elements
-
+        final String GREEN = "\033[32m";
+        final String SQUARE = "◼";
         StringBuilder output = new StringBuilder();
-        int maxHeight = Utils.findMax(arrayList);
 
+        int maxHeight = Utils.findMax(array);
         for (int row = maxHeight; row > 0; row--) {
-            output.append("\033[2K"); // Clear the whole line
-
-            for (int col = 0; col < arrayList.size(); col++) {
-                int element = arrayList.get(col);
-
+            output.append("\033[2K");
+            for (int col = 0; col < array.size(); col++) {
+                int element = array.get(col);
                 if (element >= row) {
                     if (sortedIndices.contains(col)) {
-                        output.append(GREEN).append("#").append(RESET);
-                    } else if (col == keyIndex) {
-                        output.append(YELLOW).append("#").append(RESET);
-                    } else if (col == shiftIndex) {
-                        output.append(RED).append("#").append(RESET);
-                    } else if (col == targetIndex) {
-                        output.append(BLUE).append("#").append(RESET);
+                        output.append(GREEN).append(SQUARE).append(RESET);
+                    } else if (col == index) {
+                        output.append(color).append(SQUARE).append(RESET); // Highlight element in specified color
                     } else {
-                        output.append("#");
+                        output.append(SQUARE);
                     }
                 } else {
                     output.append(" ");
@@ -88,10 +97,21 @@ public class InsertionSort extends AlgorithmSort {
         System.out.print("\033[" + maxHeight + "F");
 
         try {
-            Thread.sleep(100);
+            Thread.sleep(sleepDuration);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
 
+    private void printStatistics() {
+        System.out.println("\n===== Insertion Sort Statistics: =====");
+        System.out.printf("+--------------------+--------------------+%n");
+        System.out.printf("| Metric             | Value              |%n");
+        System.out.printf("+--------------------+--------------------+%n");
+        System.out.printf("| Array Size         | %-18d |%n", array.size());
+        System.out.printf("| Total Comparisons  | %-18d |%n", comparisonCount);
+        System.out.printf("| Total Swaps/Shifts | %-18d |%n", swapCount);
+        System.out.printf("+--------------------+--------------------+%n");
+    }
 }
+
