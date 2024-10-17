@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-public class InsertionSort extends AlgorithmSort {
+public class InsertionSort extends SortingAlgorithm {
     private int comparisonCount = 0;
     private int swapCount = 0;
 

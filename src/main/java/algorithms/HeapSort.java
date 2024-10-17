@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-public class HeapSort extends AlgorithmSort {
+public class HeapSort extends SortingAlgorithm {
     private int comparisonCount = 0;
     private int swapCount = 0;
 
