@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-public class SelectionSort extends AlgorithmSort {
+public class SelectionSort extends SortingAlgorithm {
 
     public SelectionSort(ArrayList<Integer> array) {
         super(array);
