@@ -3,9 +3,14 @@ package ui;
 import io.github.shuoros.jterminal.JTerminal;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Set;
 
+import static ui.UI.array;
+import static ui.UI.terminal;
+
 public abstract class Utils {
+
     public static int findMax(ArrayList<Integer> array) {
         int max = 0;
         for (var element : array) {
@@ -15,13 +20,8 @@ public abstract class Utils {
     }
 
     public static void swapHighlighted(ArrayList<Integer> arr, int currentIndex, int targetIndex, Set<Integer> sortedIndices, int sleepDuration) {
-
         displayVerticalArray(arr, currentIndex, targetIndex, sortedIndices);
-        try {
-            Thread.sleep(sleepDuration);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        sleepALittle(sleepDuration);
 
         // Perform the swap
         int temp = arr.get(currentIndex);
@@ -29,11 +29,7 @@ public abstract class Utils {
         arr.set(targetIndex, temp);
 
         displayVerticalArray(arr, currentIndex, targetIndex, sortedIndices);
-        try {
-            Thread.sleep(sleepDuration);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        sleepALittle(sleepDuration);
     }
 
 
@@ -67,8 +63,8 @@ public abstract class Utils {
             }
             output.append("\n");
         }
-
-        System.out.print(output.toString());
+        //printInCenter(output.toString(), " ");
+        System.out.print(output);
 
         /*
         Repositioning the cursor:
@@ -79,6 +75,66 @@ public abstract class Utils {
         System.out.print("\033[" + maxHeight + "F"); // Move cursor up to the top
     }
 
+    /**
+     * Overload displayVerticalArray method to print initial unsorted array
+     *
+     * @param arrayList array to print
+     */
+    public static void displayVerticalArray(ArrayList<Integer> arrayList) {
+        StringBuilder output = new StringBuilder();
 
-    // fillArrayRandomlyMethod (between 1 and 100 for example)
+        int maxHeight = findMax(arrayList);
+
+        for (int row = maxHeight; row > 0; row--) {
+            output.append("\033[2K"); // Clear the whole line
+            for (int col = 0; col < arrayList.size(); col++) {
+                int element = arrayList.get(col);
+                if (element >= row) output.append("◼");
+                else output.append(" ");
+            }
+            output.append("\n");
+        }
+        System.out.print(output);
+        System.out.print("\033[" + maxHeight + "F"); // Move cursor up to the top
+    }
+
+    public static void clearArrayAndFillRandomly(ArrayList<Integer> array, int width, int height) {
+        Random r = new Random();
+        array.clear();
+        for (int i = 0; i < width - 1; i++) {
+            array.add(r.nextInt(1, (int) (height - 1)));
+        }
+    }
+
+    public static void printInCenter(String line, String symbolForFill) {
+        int width = UI.terminal.getWidth();
+        int padding = ((width - line.length()) / 2);
+        JTerminal.println(symbolForFill.repeat(Math.max(0, padding)) + line + symbolForFill.repeat(Math.max(0, padding)));
+    }
+
+    /**
+     * Preparing to print a sorting animation and show unsorted array for 3 seconds
+     *
+     * @param algorithm Name of algorithm that will be printed at the top of the screen
+     */
+    public static void prepareForSorting(String algorithm) {
+        clearArrayAndFillRandomly(array, terminal.getWidth(), terminal.getHeight());
+        JTerminal.clear();
+        printInCenter(algorithm, "=");
+        displayVerticalArray(array);
+        sleepALittle(3000);
+    }
+
+    /**
+     * We use Thread.sleep() a lot, so let's extract it to the nice method
+     *
+     * @param sleepDuration duration of sleep in millis
+     */
+    public static void sleepALittle(int sleepDuration) {
+        try {
+            Thread.sleep(sleepDuration);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
