@@ -54,7 +54,7 @@ swaps them if they are in the wrong order. This process continues until the list
 bubbling" to the top. For e.g: in ascending order, the largest elements gradually move to the last position with each
 pass.
 
-<details open> <summary>Show Bubble Sort Visualization</summary> <p align="center"> <img src="assets/bubbleSort.gif" alt="Bubble Sort visualization" width="400"/> </p> </details>
+<details open> <summary>Show Bubble Sort Visualization</summary> <p align="center"> <img src="assets/algo-gifs/bubbleSort.gif" alt="Bubble Sort visualization" width="400"/> </p> </details>
 
 ## Selection Sort
 
@@ -62,7 +62,7 @@ pass.
 part. It repeatedly finds the smallest (or largest) element from the unsorted part and swaps it with the first unsorted
 element, gradually growing the sorted portion until the entire list is sorted.
 
-<details open> <summary>Show Selection Sort Visualization</summary> <p align="center"> <img src="assets/selectionSort.gif" alt="Selection Sort visualization" width="400"/> </p> </details>
+<details open> <summary>Show Selection Sort Visualization</summary> <p align="center"> <img src="assets/algo-gifs/selectionSort.gif" alt="Selection Sort visualization" width="400"/> </p> </details>
 
 ## Quick Sort
 
@@ -71,7 +71,7 @@ element and partitions the array into two sub-arrays: one with elements less tha
 greater than
 the pivot. This process is recursively applied to each sub-array until the entire list is sorted.
 
-<details open> <summary>Show Quick Sort Visualization</summary> <p align="center"> <img src="assets/quickSort.gif" alt="Quick Sort visualization" width="400"/> </p> </details>
+<details open> <summary>Show Quick Sort Visualization</summary> <p align="center"> <img src="assets/algo-gifs/quickSort.gif" alt="Quick Sort visualization" width="400"/> </p> </details>
 
 ## Insertion Sort
 
@@ -80,7 +80,7 @@ element
 from the unsorted list, finds its correct position in the sorted list, and inserts it there. This process repeats until
 all elements are sorted.
 
-<details open> <summary>Show Insertion Sort Visualization</summary> <p align="center"> <img src="assets/insertionSort.gif" alt="Insertion Sort visualization" width="400"/> </p> </details>
+<details open> <summary>Show Insertion Sort Visualization</summary> <p align="center"> <img src="assets/algo-gifs/insertionSort.gif" alt="Insertion Sort visualization" width="400"/> </p> </details>
 
 ## Heap Sort
 
@@ -90,4 +90,4 @@ sorting
 the list in ascending order.
 
 
-<details open> <summary>Show Heap Sort Visualization</summary> <p align="center"> <img src="assets/heapSort.gif" alt="Insertion Heap visualization" width="400"/> </p> </details>
+<details open> <summary>Show Heap Sort Visualization</summary> <p align="center"> <img src="assets/algo-gifs/heapSort.gif" alt="Insertion Heap visualization" width="400"/> </p> </details>
