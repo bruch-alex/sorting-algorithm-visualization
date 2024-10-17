@@ -79,10 +79,10 @@ public class InsertionSort extends AlgorithmSort {
             for (int col = 0; col < array.size(); col++) {
                 int element = array.get(col);
                 if (element >= row) {
-                    if (sortedIndices.contains(col)) {
-                        output.append(GREEN).append(SQUARE).append(RESET);
-                    } else if (col == index) {
+                    if (col == index) {
                         output.append(color).append(SQUARE).append(RESET); // Highlight element in specified color
+                    } else if (sortedIndices.contains(col)) {
+                        output.append(GREEN).append(SQUARE).append(RESET);
                     } else {
                         output.append(SQUARE);
                     }
