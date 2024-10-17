@@ -62,6 +62,7 @@ public class InsertionSort extends AlgorithmSort {
             Utils.displayVerticalArray(array, -1, -1, sortedIndices);
         }
 
+        highlightEverything(sortedIndices);
         Utils.displayVerticalArray(array, -1, -1, sortedIndices);
         printStatistics();
     }
@@ -81,9 +82,10 @@ public class InsertionSort extends AlgorithmSort {
                 if (element >= row) {
                     if (col == index) {
                         output.append(color).append(SQUARE).append(RESET); // Highlight element in specified color
-                    } else if (sortedIndices.contains(col)) {
-                        output.append(GREEN).append(SQUARE).append(RESET);
-                    } else {
+                    } //else if (sortedIndices.contains(col)) {
+                    //output.append(GREEN).append(SQUARE).append(RESET);
+                    //    }
+                    else {
                         output.append(SQUARE);
                     }
                 } else {
@@ -100,6 +102,12 @@ public class InsertionSort extends AlgorithmSort {
             Thread.sleep(sleepDuration);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    private void highlightEverything(Set<Integer> sortedIndices){
+        for (int i = 0; i < array.size(); i++) {
+            sortedIndices.add(i);
         }
     }
 
