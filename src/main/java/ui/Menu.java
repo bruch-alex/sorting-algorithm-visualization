@@ -11,10 +11,11 @@ class Menu {
         JTerminal.println("""
                 \nSelect an option:\
                 \n\
-                \n(1)\tRun Bubble sort\
-                \n(2)\tRun Insertion sort\
-                \n(3)\tRun Quick sort\
-                \n(4)\tRun Selection sort\
+                \n(1)\tRun Bubble Sort\
+                \n(2)\tRun Insertion Sort\
+                \n(3)\tRun Quick Sort\
+                \n(4)\tRun Selection Sort\
+                \n(5)\tHeap Sort
                 \n(a)\tRun all\
                 \n(e)\texit""");
     }
@@ -25,6 +26,7 @@ class Menu {
             case "2" -> InsertionSort.start();
             case "3" -> QuickSort.start();
             case "4" -> SelectionSort.start();
+            case "5" -> HeapSort.start();
             case "a", "all" -> StartAllOption.start();
             case "exit", "e" -> System.exit(0);
             default -> JTerminal.println("Wrong input");

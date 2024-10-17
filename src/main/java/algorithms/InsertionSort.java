@@ -8,8 +8,6 @@ import java.util.Set;
 
 
 public class InsertionSort extends SortingAlgorithm {
-    private int comparisonCount = 0;
-    private int swapCount = 0;
 
     public InsertionSort(ArrayList<Integer> array) {
         super(array);
@@ -27,8 +25,8 @@ public class InsertionSort extends SortingAlgorithm {
         int n = array.size();
 
         for (int i = 1; i < n; i++) {
-            int sleepDuration = 10 + (i * 2); // Dynamic delay for shifts and comparisons
-            int highlightSortedElementDelay = 10 + (i * 5); // Delay specifically for highlighting sorted elements
+            int sleepDuration = 40 ; // Dynamic delay for shifts and comparisons
+            int highlightSortedElementDelay = 20; // Delay specifically for highlighting sorted elements
 
 
             int key = array.get(i);
@@ -64,7 +62,6 @@ public class InsertionSort extends SortingAlgorithm {
 
         highlightEverything(sortedIndices);
         Utils.displayVerticalArray(array, -1, -1, sortedIndices);
-        printStatistics();
     }
 
 
@@ -109,17 +106,6 @@ public class InsertionSort extends SortingAlgorithm {
         for (int i = 0; i < array.size(); i++) {
             sortedIndices.add(i);
         }
-    }
-
-    private void printStatistics() {
-        System.out.println("\n===== Insertion Sort Statistics: =====");
-        System.out.printf("+--------------------+--------------------+%n");
-        System.out.printf("| Metric             | Value              |%n");
-        System.out.printf("+--------------------+--------------------+%n");
-        System.out.printf("| Array Size         | %-18d |%n", array.size());
-        System.out.printf("| Total Comparisons  | %-18d |%n", comparisonCount);
-        System.out.printf("| Total Swaps/Shifts | %-18d |%n", swapCount);
-        System.out.printf("+--------------------+--------------------+%n");
     }
 }
 

@@ -34,13 +34,16 @@ public class QuickSort extends SortingAlgorithm {
 
         for (int i = start; i <= end - 1; i++) {
             Utils.displayVerticalArray(array, i, end, sortedIndices);
+            comparisonCount++;
             if (array.get(i) <= pivot) {
                 Utils.swapHighlighted(array, pIndex, i, sortedIndices, sleepDuration);
+                swapCount++;
                 pIndex++;
             }
         }
 
         Utils.swapHighlighted(array, pIndex, end, sortedIndices, sleepDuration);
+        swapCount++;
         sortedIndices.add(pIndex);
         sortedIndices.add(start);
         sortedIndices.add(end);

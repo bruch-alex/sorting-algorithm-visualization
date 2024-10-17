@@ -6,5 +6,6 @@ class StartAllOption {
         InsertionSort.start();
         QuickSort.start();
         SelectionSort.start();
+        HeapSort.start();
     }
 }

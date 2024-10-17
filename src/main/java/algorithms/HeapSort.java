@@ -7,8 +7,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class HeapSort extends SortingAlgorithm {
-    private int comparisonCount = 0;
-    private int swapCount = 0;
 
     public HeapSort(ArrayList<Integer> array) {
         super(array);
@@ -18,7 +16,7 @@ public class HeapSort extends SortingAlgorithm {
     public void sort() {
         int n = array.size();
         Set<Integer> sortedIndices = new HashSet<>();
-        int SLEEP_DURATION = 40;
+        int SLEEP_DURATION = 30;
 
         // Build the max heap
         for (int i = n / 2 - 1; i >= 0; i--) {
@@ -37,9 +35,6 @@ public class HeapSort extends SortingAlgorithm {
         sortedIndices.add(0);
 
         Utils.displayVerticalArray(array, -1, -1, sortedIndices);
-
-        clearScreen();
-        printStatistics();
     }
 
     private void heapify(int n, int i, Set<Integer> sortedIndices, int sleepDuration) {
@@ -64,19 +59,4 @@ public class HeapSort extends SortingAlgorithm {
         }
     }
 
-    private void printStatistics() {
-        System.out.println("\n========= Heap Sort Statistics: =========");
-        System.out.printf("+--------------------+--------------------+%n");
-        System.out.printf("| Metric             | Value              |%n");
-        System.out.printf("+--------------------+--------------------+%n");
-        System.out.printf("| Array Size         | %-18d |%n", array.size());
-        System.out.printf("| Total Comparisons  | %-18d |%n", comparisonCount);
-        System.out.printf("| Total Swaps/Shifts | %-18d |%n", swapCount);
-        System.out.printf("+--------------------+--------------------+%n");
-    }
-
-    public static void clearScreen() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-    }
 }

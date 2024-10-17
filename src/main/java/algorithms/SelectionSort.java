@@ -14,7 +14,7 @@ public class SelectionSort extends SortingAlgorithm {
 
     @Override
     public void sort() {
-        int SLEEP_DURATION = 25;
+        int SLEEP_DURATION = 50;
 
         if (array.isEmpty()) {
             System.out.println("Array is empty, nothing to sort.");
@@ -30,6 +30,7 @@ public class SelectionSort extends SortingAlgorithm {
             for (int j = i + 1; j < n; j++) {
                 // Visualize the comparison
                 Utils.displayVerticalArray(array, i, j, sortedIndices);
+                comparisonCount++;
 
                 if (array.get(j) < array.get(currentMin)) {
                     currentMin = j;
@@ -39,6 +40,7 @@ public class SelectionSort extends SortingAlgorithm {
             // Swap and visualize the result of the selection for this iteration
             if (currentMin != i) {
                 Utils.swapHighlighted(array, i, currentMin, sortedIndices, SLEEP_DURATION);
+                swapCount++;
             }
 
             // Mark the current position as sorted

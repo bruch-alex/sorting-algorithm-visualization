@@ -76,7 +76,7 @@ public abstract class Utils {
     }
 
     /**
-     * Overload displayVerticalArray method to print initial unsorted array
+     * Overload displayVerticalArray method to print initial unsorted array in white
      *
      * @param arrayList array to print
      */
@@ -87,8 +87,7 @@ public abstract class Utils {
 
         for (int row = maxHeight; row > 0; row--) {
             output.append("\033[2K"); // Clear the whole line
-            for (int col = 0; col < arrayList.size(); col++) {
-                int element = arrayList.get(col);
+            for (int element : arrayList) {
                 if (element >= row) output.append("◼");
                 else output.append(" ");
             }

@@ -13,7 +13,7 @@ public class BubbleSort extends SortingAlgorithm {
 
     @Override
     public void sort() {
-        int SLEEP_DURATION = 3;
+        int SLEEP_DURATION = 10;
 
         if (array.isEmpty()) {
             System.out.println("Array is empty, nothing to sort.");
@@ -26,10 +26,11 @@ public class BubbleSort extends SortingAlgorithm {
             for (int j = 0; j < n - i - 1; j++) {
                 // Visualize the comparison
                 Utils.displayVerticalArray(array, j, j + 1, sortedIndices);
-
+                comparisonCount++;
                 if (array.get(j) > array.get(j + 1)) {
                     // Swap and visualize the result of the selection for this iteration
                     Utils.swapHighlighted(array, j, j + 1, sortedIndices, SLEEP_DURATION);
+                    swapCount++;
                 }
             }
             // Mark the current position as sorted
