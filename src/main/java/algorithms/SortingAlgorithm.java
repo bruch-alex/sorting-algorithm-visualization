@@ -1,5 +1,7 @@
 package algorithms;
 
+import ui.Utils;
+
 import java.util.ArrayList;
 
 public abstract class SortingAlgorithm {
@@ -19,15 +21,24 @@ public abstract class SortingAlgorithm {
 
     public void printStatistics(String algorithmName) {
         clearScreen();
-        System.out.println("\n========= " + algorithmName + " Statistics: =========");
-        System.out.printf("+--------------------+--------------------+%n");
-        System.out.printf("| Metric             | Value              |%n");
-        System.out.printf("+--------------------+--------------------+%n");
-        System.out.printf("| Array Size         | %-18d |%n", array.size());
-        System.out.printf("| Total Comparisons  | %-18d |%n", comparisonCount);
-        System.out.printf("| Total Swaps/Shifts | %-18d |%n", swapCount);
-        System.out.printf("+--------------------+--------------------+%n");
+        Utils.printInCenter("========= " + algorithmName + " Statistics: =========", " ");
+
+        String header = "+--------------------+--------------------+";
+        String metrics = "| Metric             | Value              |";
+        String separator = "+--------------------+--------------------+";
+        String arraySize = String.format("| %-18s | %-18d |", "Array Size", array.size());
+        String comparisons = String.format("| %-18s | %-18d |", "Total Comparisons", comparisonCount);
+        String swaps = String.format("| %-18s | %-18d |", "Total Swaps/Shifts", swapCount);
+
+        Utils.printInCenter(header, " ");
+        Utils.printInCenter(metrics, " ");
+        Utils.printInCenter(separator, " ");
+        Utils.printInCenter(arraySize, " ");
+        Utils.printInCenter(comparisons, " ");
+        Utils.printInCenter(swaps, " ");
+        Utils.printInCenter(separator, " ");
     }
+
 
     private static void clearScreen() {
         System.out.print("\033[H\033[2J");
