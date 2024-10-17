@@ -89,10 +89,9 @@ This command will create `/taget` folder and executable `sav-version-jar-with-de
 
 ## How to Run?
 
-1. Build project using the instructions above, or download latest release from release section.
+1. Download `.jar` file from [latest release](https://github.com/bruch-alex/sorting-algorithm-visualization/releases/latest).
 
-2. Open terminal, navigate to your project folder, and then go into the ```target``` directory where the `.jar` file is
-   located. Run this command to start the program:
+2. Open terminal in a folder where the `.jar` file is located. Run this command to start the program:
 
 ```
 java -jar sav-1.0-jar-with-dependencies.jar
