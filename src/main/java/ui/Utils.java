@@ -101,7 +101,7 @@ public abstract class Utils {
         Random r = new Random();
         array.clear();
         for (int i = 0; i < width - 1; i++) {
-            array.add(r.nextInt(1, (int) (height - 1)));
+            array.add(r.nextInt(height - 1) + 1);
         }
     }
 
