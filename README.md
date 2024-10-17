@@ -94,5 +94,5 @@ This command will create `/taget` folder and executable `sav-version-jar-with-de
 2. Open terminal in a folder where the `.jar` file is located. Run this command to start the program:
 
 ```
-java -jar sav-1.0-jar-with-dependencies.jar
+java -jar sav-1.2-jar-with-dependencies.jar
 ```
