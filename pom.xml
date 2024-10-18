@@ -67,8 +67,9 @@
     </build>
     <distributionManagement>
         <repository>
-            <id>sorting-algorithm-visualization</id>
-            <url>https://github.com/bruch-alex/sorting-algorithm-visualization</url>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/bruch-alex/sorting-algorithm-visualization</url>
         </repository>
     </distributionManagement>
 </project>
