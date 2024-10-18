@@ -74,7 +74,7 @@ the list in ascending order.
 
 # How to Build & Run
 
-You need at least java 22
+You need at least java 11
 
 ## How to Build executable file?
 
