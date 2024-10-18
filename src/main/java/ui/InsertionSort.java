@@ -8,7 +8,7 @@ class InsertionSort {
         algorithms.InsertionSort algo = new algorithms.InsertionSort(array);
         algo.sort();
         Utils.sleepALittle(2000);
-        algo.printStatistics("Insertion Sort");
+        algo.clearScreenAndPrintStatistics("Insertion Sort");
         Utils.sleepALittle(2000);
     }
 }

@@ -19,8 +19,8 @@ public abstract class SortingAlgorithm {
     public abstract void sort();
 
 
-    public void printStatistics(String algorithmName) {
-        clearScreen();
+    public void clearScreenAndPrintStatistics(String algorithmName) {
+        Utils.clearScreen();
         Utils.printInCenter("========= " + algorithmName + " Statistics: =========", " ");
 
         String header = "+--------------------+--------------------+";
@@ -40,8 +40,8 @@ public abstract class SortingAlgorithm {
     }
 
 
-    private static void clearScreen() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-    }
+//    private static void clearScreen() {
+//        System.out.print("\033[H\033[2J");
+//        System.out.flush();
+//    }
 }

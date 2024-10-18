@@ -1,6 +1,5 @@
 package ui;
 
-import io.github.shuoros.jterminal.JTerminal;
 import org.jline.reader.LineReader;
 import org.jline.terminal.Terminal;
 
@@ -24,6 +23,5 @@ public class UI {
             Utils.sleepALittle(1500);
         }
     }
-
 
 }

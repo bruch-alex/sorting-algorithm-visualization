@@ -1,12 +1,10 @@
 package ui;
 
-import io.github.shuoros.jterminal.JTerminal;
-
 import static ui.UI.reader;
 
 class Menu {
     protected static void printOptions() {
-        JTerminal.clear();
+        Utils.clearScreen();
         Utils.printInCenter("AWESOME algorithm visualization app", "=");
         System.out.println("Select an option" +
                 "\n" +
@@ -44,7 +42,7 @@ class Menu {
             case "e":
                 System.exit(0);
             default:
-                JTerminal.println("Wrong input");
+                System.err.println("Wrong input");
                 break;
         }
     }

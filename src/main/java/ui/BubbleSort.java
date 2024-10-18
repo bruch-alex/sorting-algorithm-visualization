@@ -8,7 +8,7 @@ class BubbleSort {
         algorithms.BubbleSort algo =  new algorithms.BubbleSort(array);
         algo.sort();
         Utils.sleepALittle(2000);
-        algo.printStatistics("Bubble Sort");
+        algo.clearScreenAndPrintStatistics("Bubble Sort");
         Utils.sleepALittle(4000);
     }
 }
