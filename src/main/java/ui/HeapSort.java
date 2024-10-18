@@ -8,7 +8,7 @@ public class HeapSort {
         algorithms.HeapSort algo =  new algorithms.HeapSort(array);
         algo.sort();
         Utils.sleepALittle(2000);
-        algo.printStatistics("Heap Sort");
+        algo.clearScreenAndPrintStatistics("Heap Sort");
         Utils.sleepALittle(4000);
     }
 }

@@ -8,7 +8,7 @@ class QuickSort {
         algorithms.QuickSort algo = new algorithms.QuickSort(array);
         algo.sort();
         Utils.sleepALittle(2000);
-        algo.printStatistics("Quick Sort");
+        algo.clearScreenAndPrintStatistics("Quick Sort");
         Utils.sleepALittle(2000);
     }
 }

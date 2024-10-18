@@ -1,6 +1,5 @@
 package ui;
 
-import io.github.shuoros.jterminal.JTerminal;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -108,7 +107,7 @@ public abstract class Utils {
     public static void printInCenter(String line, String symbolForFill) {
         int width = UI.terminal.getWidth();
         int padding = ((width - line.length()) / 2);
-        JTerminal.println(symbolForFill.repeat(Math.max(0, padding)) + line + symbolForFill.repeat(Math.max(0, padding)));
+        System.out.println(symbolForFill.repeat(Math.max(0, padding)) + line + symbolForFill.repeat(Math.max(0, padding)));
     }
 
     /**
@@ -118,7 +117,7 @@ public abstract class Utils {
      */
     public static void prepareForSorting(String algorithm) {
         clearArrayAndFillRandomly(array, terminal.getWidth(), terminal.getHeight());
-        JTerminal.clear();
+        clearScreen();
         printInCenter(algorithm, "=");
         displayVerticalArray(array);
         sleepALittle(3000);
@@ -135,5 +134,10 @@ public abstract class Utils {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 }
