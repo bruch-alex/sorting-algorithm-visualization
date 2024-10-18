@@ -6,7 +6,7 @@
 
     <groupId>sorting.algorithm.visualization</groupId>
     <artifactId>sav</artifactId>
-    <version>v1.3-beta.2.</version>
+    <version>v1.4</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -65,11 +65,4 @@
             </plugin>
         </plugins>
     </build>
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/bruch-alex/sorting-algorithm-visualization</url>
-        </repository>
-    </distributionManagement>
 </project>
