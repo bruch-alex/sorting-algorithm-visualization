@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="sar" target="22" />
+      <module name="sar" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
