@@ -34,7 +34,7 @@ swaps them if they are in the wrong order. This process continues until the list
 bubbling" to the top. For e.g: in ascending order, the largest elements gradually move to the last position with each
 pass.
 
-<details> <summary>Show Bubble Sort Visualization</summary> <p align="center"> <img src="assets/algo-gifs/bubbleSort.gif" alt="Bubble Sort visualization" width="600"/> </p> </details>
+<details> <summary>Click to show Bubble Sort Visualization</summary> <p align="center"> <img src="assets/algo-gifs/bubbleSort.gif" alt="Bubble Sort visualization" width="600"/> </p> </details>
 
 ## Selection Sort
 
@@ -42,7 +42,7 @@ pass.
 part. It repeatedly finds the smallest (or largest) element from the unsorted part and swaps it with the first unsorted
 element, gradually growing the sorted portion until the entire list is sorted.
 
-<details> <summary>Show Selection Sort Visualization</summary> <p align="center"> <img src="assets/algo-gifs/selectionSort.gif" alt="Selection Sort visualization" width="600"/> </p> </details>
+<details> <summary>Click to show Selection Sort Visualization</summary> <p align="center"> <img src="assets/algo-gifs/selectionSort.gif" alt="Selection Sort visualization" width="600"/> </p> </details>
 
 ## Quick Sort
 
@@ -51,7 +51,7 @@ element and partitions the array into two sub-arrays: one with elements less tha
 greater than
 the pivot. This process is recursively applied to each sub-array until the entire list is sorted.
 
-<details> <summary>Show Quick Sort Visualization</summary> <p align="center"> <img src="assets/algo-gifs/quickSort.gif" alt="Quick Sort visualization" width="600"/> </p> </details>
+<details> <summary>Click to show Quick Sort Visualization</summary> <p align="center"> <img src="assets/algo-gifs/quickSort.gif" alt="Quick Sort visualization" width="600"/> </p> </details>
 
 ## Insertion Sort
 
@@ -60,7 +60,7 @@ element
 from the unsorted list, finds its correct position in the sorted list, and inserts it there. This process repeats until
 all elements are sorted.
 
-<details> <summary>Show Insertion Sort Visualization</summary> <p align="center"> <img src="assets/algo-gifs/insertionSort.gif" alt="Insertion Sort visualization" width="600"/> </p> </details>
+<details> <summary>Click to show Insertion Sort Visualization</summary> <p align="center"> <img src="assets/algo-gifs/insertionSort.gif" alt="Insertion Sort visualization" width="600"/> </p> </details>
 
 ## Heap Sort
 
@@ -70,29 +70,58 @@ sorting
 the list in ascending order.
 
 
-<details> <summary>Show Heap Sort Visualization</summary> <p align="center"> <img src="assets/algo-gifs/heapSort.gif" alt="Insertion Heap visualization" width="600"/> </p> </details>
+<details> <summary>Click to show Heap Sort Visualization</summary> <p align="center"> <img src="assets/algo-gifs/heapSort.gif" alt="Insertion Heap visualization" width="600"/> </p> </details>
 
 # How to Build & Run
 
-You need at least java 11
+## Requirements
+
+- To run this program **JDK 11** (or newer) must be installed.
+
+## Check and update JDK
+
+<details> <summary>Click for Ubuntu/Debian details</summary> <p>
+
+**Check default** JDK version:
+
+```
+java -version
+```
+
+**List all** installed JDK and **change default** JDK if needed:
+
+```
+sudo update-alternatives --config java
+```
+
+**Install JDK** (You may change `11` here to newer versions):
+
+```
+sudo apt install openjdk-11-jdk
+```
+
+</p> </details>
+
+## How to Run?
+
+1. Download `.jar` file
+   from [latest release](https://github.com/bruch-alex/sorting-algorithm-visualization/releases/latest).
+
+2. Open terminal in a folder where the `.jar` file is located. Run this command to start the program (check that filenames are matching):
+
+```
+java -jar sav-1.4-jar-with-dependencies.jar
+```
 
 ## How to Build executable file?
 
-1. Clone this repo
+1. Download this repo
 2. Open terminal in a root folder and run this command
 
 ```
 mvn clean package
 ```
 
-This command will create `/taget` folder and executable `sav-version-jar-with-dependencies.jar` inside.
+This command will create `/taget` folder and executable `sav-version-jar-with-dependencies.jar` inside where `version` will look like `1.4` for example.
 
-## How to Run?
 
-1. Download `.jar` file from [latest release](https://github.com/bruch-alex/sorting-algorithm-visualization/releases/latest).
-
-2. Open terminal in a folder where the `.jar` file is located. Run this command to start the program:
-
-```
-java -jar sav-1.2-jar-with-dependencies.jar
-```
