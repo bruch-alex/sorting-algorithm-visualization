@@ -22,8 +22,10 @@ algorithms, allowing you to understand and compare them in action. It currently 
     - [Insertion Sort](#insertion-sort)
     - [Heap Sort](#heap-sort)
 - [How to Build & Run](#how-to-build--run)
-    - [How to Build executable file?](#how-to-build-executable-file)
+    - [Requirements](#requirements)
+    - [Check and update JDK](#check-and-update-jdk)
     - [How to Run](#how-to-run)
+    - [How to Build executable file?](#how-to-build-executable-file)
 
 # Algorithms
 
@@ -107,7 +109,8 @@ sudo apt install openjdk-11-jdk
 1. Download `.jar` file
    from [latest release](https://github.com/bruch-alex/sorting-algorithm-visualization/releases/latest).
 
-2. Open terminal in a folder where the `.jar` file is located. Run this command to start the program (check that filenames are matching):
+2. Open terminal in a folder where the `.jar` file is located. Run this command to start the program (check that
+   filenames are matching):
 
 ```
 java -jar sav-1.4-jar-with-dependencies.jar
@@ -122,6 +125,7 @@ java -jar sav-1.4-jar-with-dependencies.jar
 mvn clean package
 ```
 
-This command will create `/taget` folder and executable `sav-version-jar-with-dependencies.jar` inside where `version` will look like `1.4` for example.
+This command will create `/taget` folder and executable `sav-version-jar-with-dependencies.jar` inside where `version`
+will look like `1.4` for example.
 
 
