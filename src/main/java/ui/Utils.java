@@ -1,6 +1,5 @@
 package ui;
 
-
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Set;
@@ -9,6 +8,13 @@ import static ui.UI.array;
 import static ui.UI.terminal;
 
 public abstract class Utils {
+    final static String RESET = "\033[0m";
+    final static String RED = "\033[31m"; // comparison element
+    final static String BLUE = "\033[34m"; // target element
+    final static String GREEN = "\033[32m"; // sorted elements
+    final static char linuxSymbol = '◼';
+    final static char windowsSymbol = '#';
+    private static char currentSymbol;
 
     public static int findMax(ArrayList<Integer> array) {
         int max = 0;
@@ -33,10 +39,6 @@ public abstract class Utils {
 
 
     public static void displayVerticalArray(ArrayList<Integer> arrayList, int currentIndex, int targetIndex, Set<Integer> sortedIndices) {
-        final String RESET = "\033[0m";
-        final String RED = "\033[31m"; // comparison element
-        final String BLUE = "\033[34m"; // target element
-        final String GREEN = "\033[32m"; // sorted elements
         StringBuilder output = new StringBuilder();
 
         int maxHeight = findMax(arrayList);
@@ -48,13 +50,13 @@ public abstract class Utils {
                 int element = arrayList.get(col);
                 if (element >= row) {
                     if (sortedIndices.contains(col)) {
-                        output.append(GREEN).append("◼").append(RESET);
+                        output.append(GREEN).append(currentSymbol).append(RESET);
                     } else if (col == currentIndex) {
-                        output.append(RED).append("◼").append(RESET);
+                        output.append(RED).append(currentSymbol).append(RESET);
                     } else if (col == targetIndex) {
-                        output.append(BLUE).append("◼").append(RESET);
+                        output.append(BLUE).append(currentSymbol).append(RESET);
                     } else {
-                        output.append("◼");
+                        output.append(currentSymbol);
                     }
                 } else {
                     output.append(" ");
@@ -62,7 +64,6 @@ public abstract class Utils {
             }
             output.append("\n");
         }
-        //printInCenter(output.toString(), " ");
         System.out.print(output);
 
         /*
@@ -87,7 +88,7 @@ public abstract class Utils {
         for (int row = maxHeight; row > 0; row--) {
             output.append("\033[2K"); // Clear the whole line
             for (int element : arrayList) {
-                if (element >= row) output.append("◼");
+                if (element >= row) output.append(currentSymbol);
                 else output.append(" ");
             }
             output.append("\n");
@@ -139,5 +140,17 @@ public abstract class Utils {
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
+    }
+
+    public static void setSymbolBasedOnOS() {
+        String os = System.getProperty("os.name"); // Test on macOS and add it later
+        if (os.equals("Linux")) {
+            currentSymbol = linuxSymbol;
+        } else {
+            currentSymbol = windowsSymbol;
+        }
+    }
+    public static char getCurrentSymbol(){
+        return currentSymbol;
     }
 }
