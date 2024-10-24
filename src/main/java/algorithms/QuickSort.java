@@ -1,9 +1,6 @@
 package algorithms;
 
-import ui.Utils;
-
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Set;
 
 public class QuickSort extends SortingAlgorithm {
@@ -15,9 +12,8 @@ public class QuickSort extends SortingAlgorithm {
     @Override
     public void sort() {
         int SLEEP_DURATION = 25;
-        Set<Integer> sortedIndices = new HashSet<>();
         quickSort(0, array.size() - 1, sortedIndices, SLEEP_DURATION);
-        Utils.displayVerticalArray(array, -1, -1, sortedIndices);
+        printArray( -1, -1);
     }
 
     void quickSort(int start, int end, Set<Integer> sortedIndices, int sleepDuration) {
@@ -33,16 +29,16 @@ public class QuickSort extends SortingAlgorithm {
         int pIndex = start;
 
         for (int i = start; i <= end - 1; i++) {
-            Utils.displayVerticalArray(array, i, end, sortedIndices);
+            printArray(i, end);
             comparisonCount++;
             if (array.get(i) <= pivot) {
-                Utils.swapHighlighted(array, pIndex, i, sortedIndices, sleepDuration);
+                swapHighlighted(pIndex, i, sleepDuration);
                 swapCount++;
                 pIndex++;
             }
         }
 
-        Utils.swapHighlighted(array, pIndex, end, sortedIndices, sleepDuration);
+        swapHighlighted( pIndex, end, sleepDuration);
         swapCount++;
         sortedIndices.add(pIndex);
         sortedIndices.add(start);

@@ -1,10 +1,6 @@
 package algorithms;
 
-import ui.Utils;
-
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
 public class SelectionSort extends SortingAlgorithm {
 
@@ -15,21 +11,14 @@ public class SelectionSort extends SortingAlgorithm {
     @Override
     public void sort() {
         int SLEEP_DURATION = 50;
-
-        if (array.isEmpty()) {
-            System.out.println("Array is empty, nothing to sort.");
-            return;
-        }
-
         int n = array.size();
-        Set<Integer> sortedIndices = new HashSet<>();
 
         for (int i = 0; i < n - 1; i++) {
             int currentMin = i;
 
             for (int j = i + 1; j < n; j++) {
                 // Visualize the comparison
-                Utils.displayVerticalArray(array, i, j, sortedIndices);
+                printArray(i, j);
                 comparisonCount++;
 
                 if (array.get(j) < array.get(currentMin)) {
@@ -39,7 +28,7 @@ public class SelectionSort extends SortingAlgorithm {
 
             // Swap and visualize the result of the selection for this iteration
             if (currentMin != i) {
-                Utils.swapHighlighted(array, i, currentMin, sortedIndices, SLEEP_DURATION);
+                swapHighlighted(i, currentMin, SLEEP_DURATION);
                 swapCount++;
             }
 
@@ -53,7 +42,7 @@ public class SelectionSort extends SortingAlgorithm {
         }
 
         // Final visualization with all elements highlighted in green
-        Utils.displayVerticalArray(array, -1, -1, sortedIndices);
+        printArray(-1, -1);
     }
 }
 

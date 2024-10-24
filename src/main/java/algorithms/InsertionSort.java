@@ -25,7 +25,7 @@ public class InsertionSort extends SortingAlgorithm {
         int n = array.size();
 
         for (int i = 1; i < n; i++) {
-            int sleepDuration = 40 ; // Dynamic delay for shifts and comparisons
+            int sleepDuration = 40; // Dynamic delay for shifts and comparisons
             int highlightSortedElementDelay = 20; // Delay specifically for highlighting sorted elements
 
 
@@ -57,17 +57,15 @@ public class InsertionSort extends SortingAlgorithm {
             }
 
             sortedIndices.add(j + 1);
-            Utils.displayVerticalArray(array, -1, -1, sortedIndices);
+            printArray(-1, -1);
         }
 
-        highlightEverything(sortedIndices);
-        Utils.displayVerticalArray(array, -1, -1, sortedIndices);
+        highlightEverything();
+        printArray(-1, -1);
     }
 
 
-    private static void highlightElement(ArrayList<Integer> array, int index, String color, Set<Integer> sortedIndices, int sleepDuration) {
-        final String RESET = "\033[0m";
-        final String GREEN = "\033[32m";
+    private void highlightElement(ArrayList<Integer> array, int index, String color, Set<Integer> sortedIndices, int sleepDuration) {
         final String SQUARE = "◼";
         StringBuilder output = new StringBuilder();
 
@@ -102,11 +100,6 @@ public class InsertionSort extends SortingAlgorithm {
         }
     }
 
-    private void highlightEverything(Set<Integer> sortedIndices){
-        for (int i = 0; i < array.size(); i++) {
-            sortedIndices.add(i);
-        }
-    }
 }
 
 
