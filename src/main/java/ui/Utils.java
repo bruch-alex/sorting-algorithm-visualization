@@ -1,6 +1,5 @@
 package ui;
 
-
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -8,6 +7,9 @@ import static ui.UI.array;
 import static ui.UI.terminal;
 
 public abstract class Utils {
+    final static char linuxSymbol = '◼';
+    final static char windowsSymbol = '#';
+    private static char currentSymbol;
 
     public static int findMax(ArrayList<Integer> array) {
         int max = 0;
@@ -16,7 +18,6 @@ public abstract class Utils {
         }
         return max;
     }
-
 
     public static void clearArrayAndFillRandomly(ArrayList<Integer> array, int width, int height) {
         Random r = new Random();
@@ -65,5 +66,17 @@ public abstract class Utils {
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
+    }
+
+    public static void setSymbolBasedOnOS() {
+        String os = System.getProperty("os.name"); // Test on macOS and add it later
+        if (os.equals("Linux")) {
+            currentSymbol = linuxSymbol;
+        } else {
+            currentSymbol = windowsSymbol;
+        }
+    }
+    public static char getCurrentSymbol(){
+        return currentSymbol;
     }
 }

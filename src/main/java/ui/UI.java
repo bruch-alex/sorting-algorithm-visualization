@@ -14,6 +14,7 @@ public class UI {
         UI.terminal = terminal;
         UI.reader = reader;
         array = new ArrayList<>();
+        Utils.setSymbolBasedOnOS();
     }
 
     public void start() {

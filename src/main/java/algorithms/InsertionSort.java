@@ -25,9 +25,9 @@ public class InsertionSort extends SortingAlgorithm {
         int n = array.size();
 
         for (int i = 1; i < n; i++) {
-            int sleepDuration = 40; // Dynamic delay for shifts and comparisons
-            int highlightSortedElementDelay = 20; // Delay specifically for highlighting sorted elements
 
+            int sleepDuration = 20 ; // Dynamic delay for shifts and comparisons
+            int highlightSortedElementDelay = 40; // Delay specifically for highlighting sorted elements
 
             int key = array.get(i);
             int j = i - 1;
@@ -64,7 +64,6 @@ public class InsertionSort extends SortingAlgorithm {
         printArray(-1, -1);
     }
 
-
     private void highlightElement(ArrayList<Integer> array, int index, String color, Set<Integer> sortedIndices, int sleepDuration) {
         final String SQUARE = "◼";
         StringBuilder output = new StringBuilder();
@@ -76,12 +75,10 @@ public class InsertionSort extends SortingAlgorithm {
                 int element = array.get(col);
                 if (element >= row) {
                     if (col == index) {
-                        output.append(color).append(SQUARE).append(RESET); // Highlight element in specified color
-                    } //else if (sortedIndices.contains(col)) {
-                    //output.append(GREEN).append(SQUARE).append(RESET);
-                    //    }
+                        output.append(color).append(Utils.getCurrentSymbol()).append(RESET); // Highlight element in specified color
+                    }
                     else {
-                        output.append(SQUARE);
+                        output.append(Utils.getCurrentSymbol());
                     }
                 } else {
                     output.append(" ");
