@@ -21,7 +21,6 @@ public class UI {
         while (true) {
             Menu.printOptions();
             Menu.handleOptions();
-            Utils.sleepALittle(1500);
         }
     }
 
